@@ -18,8 +18,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to sessions_path
+    session.delete(:user_id)
+    # session[:user_id] = nil
+    redirect_to questions_path
   end
 
   private

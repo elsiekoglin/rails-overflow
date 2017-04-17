@@ -4,10 +4,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    puts "BEFORE"
-    p @user
-    puts "AFTER"
-    p params
     if @user.save
       session[:user_id] = @user.id
       redirect_to questions_path

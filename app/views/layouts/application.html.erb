@@ -8,6 +8,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
+<% if !logged_in? %>
+  <%= link_to 'Register', new_user_path %>
+  <%= link_to 'Login', new_session_path %>
+  <%= link_to 'Home', questions_path %>
+<% else %>
+  <%= link_to current_user.username, user_path(current_user.id) %>
+  <%= link_to 'Home', questions_path %>
+  <%= link_to "Log out", session_path(current_user.id), method: :delete %>
+<% end %>
+
   <body>
     <%= yield %>
   </body>
