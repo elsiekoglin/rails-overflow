@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Add a new Question to Overalls-Overflow</h1>
+
+  <% if @errors %>
+    <% @errors.each do |error| %>
+    <p><%= error %></p>
+    <% end %>
+  <% end  %>
+    <%= form_for @question, url: {action: "create"} do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %><br>
+      <%= f.label :question %>
+      <%= f.text_area :question_body %>
+      <%= f.submit "Create" %>
+    <% end %>
+</div>

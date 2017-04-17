@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Edit this question</h1>
+
+  <% if @errors %>
+    <% @errors.each do |error| %>
+    <p><%= error %></p>
+    <% end %>
+  <% end  %>
+
+ <!--  <form class="question_answer" action="/questions/<%= @question.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    Title: <input type="text" name="question[title]" value="<%= @question.title %>"><br>
+    Body: <input type="text" name="question[question_body]" value="<%= @question.question_body %>"><br>
+    <input type="submit" value="Submit Your Changes">
+  </form> -->
+  <%= form_for @question, url: {action: "update"} do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %><br>
+      <%= f.label :question %>
+      <%= f.text_area :question_body %>
+      <%= f.submit "Edit" %>
+    <% end %>
+
+</div>
