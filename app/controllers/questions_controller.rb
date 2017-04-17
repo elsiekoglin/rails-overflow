@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create(params[:question])
+    @question = Question.create(question_params)
     @question.user_id = session[:user_id]
     if @question.save
       redirect_to @question
@@ -32,6 +32,11 @@ class QuestionsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+  def question_params
+    params.require(:question).permit(:title, :question_body)
   end
 
 end
