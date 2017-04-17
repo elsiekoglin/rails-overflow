@@ -11,10 +11,10 @@
   <% end %>
 
     <%= form_for :session, url: {action: "create"} do |f| %>
-      <%= f.label :username %>
-      <%= f.text_field :username %><br>
+      <%= f.label :email %>
+      <%= f.email_field :email %><br>
       <%= f.label :password %>
-      <%= f.text_area :password %>
+      <%= f.password_field :password %>
       <%= f.submit "Login" %>
     <% end %>
 

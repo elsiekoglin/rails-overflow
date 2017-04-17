@@ -4,7 +4,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.authenticate(params[:username], params[:password])
+    puts "HERE"
+
+    @user = User.authenticate(params[:session][:email], params[:session][:password])
+    p params[:session][:password]
+    p @user
     if @user
       session[:user_id] = @user.id
       redirect_to question_path
